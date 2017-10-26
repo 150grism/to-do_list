@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Task from './Task';
 
+var todoCounter = 3;
+
 class List extends Component {
   constructor(props) {
     super(props);
@@ -17,34 +19,58 @@ class List extends Component {
   }
 
   addTask() {
-    let newState;
-    newState = this.state.list.concat({
-      id: this.state.list[this.state.list.length - 1].id + 1,
+    let newList;
+    newList = this.state.list.concat({
+      id: todoCounter++,
       text: 'new task'
     })
-    console.log(newState);
-    this.setState({list: newState});
+    console.log(newList);
+    this.setState({list: newList});
   }
 
-  EditTask() {
-    let newState;
-    newState = this.state;
-    newState.list.filter(task => task.id === taskToEdit) = 
-    console.log(newState);
-    this.setState({list: newState});
+  editTask(taskIdToEdit, text) {
+    let newList;
+    newList = this.state.list;
+    newList.forEach((task) => {
+      if (task.id === taskIdToEdit) {
+        task.text = text;
+      }
+    })
+    console.log(this.state);
+    console.log(newList);
+    this.setState({list: newList});
   }
 
-  deleteTask(taskToDelete) {
-    let newState;
-    newState = this.state.list.filter(task => task.id !== taskToDelete);
-    this.setState({list: newState});
+  completeTask(taskIdToComplete, text) {
+    let newList;
+    newList = this.state.list;
+    newList.forEach((task) => {
+      if (task.id === taskIdToComplete) {
+        task.text = text;
+      }
+    })
+    console.log(this.state);
+    console.log(newList);
+    this.setState({list: newList});
+  }
+
+  deleteTask(taskIdToDelete) {
+    let newList;
+    newList = this.state.list.filter(task => task.id !== taskIdToDelete);
+    this.setState({list: newList});
   }
 
   render() {
     let tasks;
     tasks = this.state.list.map(task => {
       return (
-        <Task key={task.id} onDelete={this.deleteTask.bind(this)} task={task} />
+        <Task 
+          key={task.id} 
+          onEdit={this.editTask.bind(this)} 
+          onComplete={this.completeTask.bind(this)} 
+          onDelete={this.deleteTask.bind(this)} 
+          task={task} 
+        />
       );
     })
     
