@@ -68,7 +68,7 @@ class List extends Component {
             <ul className="list-group">
               {tasks}
             </ul>
-            <button type="button" className="btn btn-block btn-primary" onClick={this.addTask.bind(this)}>
+            <button type="button" className="btn btn-block btn-primary btn-lg" onClick={this.addTask.bind(this)}>
               <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
