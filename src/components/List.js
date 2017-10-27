@@ -22,7 +22,7 @@ class List extends Component {
     let newList;
     newList = this.state.list.concat({
       id: todoCounter++,
-      text: 'new task'
+      text: ''
     })
     console.log(newList);
     this.setState({list: newList});
@@ -75,11 +75,17 @@ class List extends Component {
     })
     
     return (
-      <div className="List">
-        <ul>
-          {tasks}
-        </ul>
-        <button onClick={this.addTask.bind(this)}>+</button>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div className="List col-lg-6">
+            <ul class="list-group">
+              {tasks}
+            </ul>
+            <button type="button" class="btn btn-block" onClick={this.addTask.bind(this)}>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
