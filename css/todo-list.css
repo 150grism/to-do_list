@@ -1,0 +1,26 @@
+/* .list-group .list-group-item:not(:first-of-type) {
+  border-top: none;
+} */
+
+/* body {
+  margin: 0;
+} */
+
+.list-group .list-group-item-success .input-group .form-control {
+  text-decoration: line-through;
+  color: #868e96;
+  /* background-color: #f8f9fa; */
+}
+
+@media screen and (min-width: 481px) {
+  .container {
+    margin-top: 48px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    margin-top: 5px;
+    padding: 0;
+  }
+}
