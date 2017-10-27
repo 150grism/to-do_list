@@ -29,14 +29,15 @@ class Task extends Component {
             value={this.props.task.text} 
             placeholder="new task"
             onChange={this.editTask.bind(this, this.props.task.id)}
+            disabled={this.state.completed}
           />
           <span className="input-group-btn">
-            <a className="btn btn-secondary" onClick={this.completeTaskToggle.bind(this, this.props.task.id)} href='#'>
+            <button type="button" className="btn btn-success" onClick={this.completeTaskToggle.bind(this, this.props.task.id)}>
               <i className="fa fa-check" aria-hidden="true"></i>
-            </a>
-            <a className="btn btn-secondary" onClick={this.deleteTask.bind(this, this.props.task.id)} href='#'>
+            </button>
+            <button type="button" className="btn btn-danger" onClick={this.deleteTask.bind(this, this.props.task.id)}>
               <i className="fa fa-times" aria-hidden="true"></i>
-            </a>
+            </button>
           </span>
         </div>
       </li>

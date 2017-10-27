@@ -24,7 +24,7 @@ class List extends Component {
       id: todoCounter++,
       text: ''
     })
-    console.log(newList);
+    // console.log(newList);
     this.setState({list: newList});
   }
 
@@ -36,8 +36,8 @@ class List extends Component {
         task.text = text;
       }
     })
-    console.log(this.state);
-    console.log(newList);
+    // console.log(this.state);
+    // console.log(newList);
     this.setState({list: newList});
   }
 
@@ -63,11 +63,12 @@ class List extends Component {
     return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="List col-lg-6">
+          <div className="List col-12 col-md-9 col-lg-7 col-xl-6">
+            <h4 className="text-center">Todo list</h4>
             <ul className="list-group">
               {tasks}
             </ul>
-            <button type="button" className="btn btn-block" onClick={this.addTask.bind(this)}>
+            <button type="button" className="btn btn-block btn-primary" onClick={this.addTask.bind(this)}>
               <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
