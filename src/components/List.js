@@ -41,19 +41,6 @@ class List extends Component {
     this.setState({list: newList});
   }
 
-  completeTask(taskIdToComplete, text) {
-    let newList;
-    newList = this.state.list;
-    newList.forEach((task) => {
-      if (task.id === taskIdToComplete) {
-        task.text = text;
-      }
-    })
-    console.log(this.state);
-    console.log(newList);
-    this.setState({list: newList});
-  }
-
   deleteTask(taskIdToDelete) {
     let newList;
     newList = this.state.list.filter(task => task.id !== taskIdToDelete);
@@ -67,7 +54,6 @@ class List extends Component {
         <Task 
           key={task.id} 
           onEdit={this.editTask.bind(this)} 
-          onComplete={this.completeTask.bind(this)} 
           onDelete={this.deleteTask.bind(this)} 
           task={task} 
         />
@@ -75,14 +61,14 @@ class List extends Component {
     })
     
     return (
-      <div class="container">
-        <div class="row justify-content-center">
+      <div className="container">
+        <div className="row justify-content-center">
           <div className="List col-lg-6">
-            <ul class="list-group">
+            <ul className="list-group">
               {tasks}
             </ul>
-            <button type="button" class="btn btn-block" onClick={this.addTask.bind(this)}>
-              <i class="fa fa-plus" aria-hidden="true"></i>
+            <button type="button" className="btn btn-block" onClick={this.addTask.bind(this)}>
+              <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
         </div>

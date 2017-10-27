@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 
 class Task extends Component {
-  completeTask(taskIdToComplete) {
-    this.props.onComplete(taskIdToComplete)
+  constructor(props) {
+    super(props);
+    this.state = {completed: false};
+  }
+
+  completeTaskToggle() {
+    // this.props.onComplete(taskIdToComplete)
+    this.setState({completed: !this.state.completed});
   }
 
   deleteTask(taskIdToDelete) {
@@ -13,23 +19,23 @@ class Task extends Component {
     this.props.onEdit(taskIdToEdit, event.target.value)
   }
   
-  render() {
+  render() { 
     return (
-      <li className="Task list-group-item">
-        <div class="input-group">
+      <li className={"Task list-group-item" + (this.state.completed ? ' list-group-item-success' : '')}>
+        <div className="input-group">
           <input 
             type="text" 
-            class="form-control" 
+            className="form-control" 
             value={this.props.task.text} 
             placeholder="new task"
             onChange={this.editTask.bind(this, this.props.task.id)}
           />
-          <span class="input-group-btn">
-            <a class="btn btn-secondary" onClick={this.completeTask.bind(this, this.props.task.id)} href='#'>
-              <i class="fa fa-check" aria-hidden="true"></i>
+          <span className="input-group-btn">
+            <a className="btn btn-secondary" onClick={this.completeTaskToggle.bind(this, this.props.task.id)} href='#'>
+              <i className="fa fa-check" aria-hidden="true"></i>
             </a>
-            <a class="btn btn-secondary" onClick={this.deleteTask.bind(this, this.props.task.id)} href='#'>
-              <i class="fa fa-times" aria-hidden="true"></i>
+            <a className="btn btn-secondary" onClick={this.deleteTask.bind(this, this.props.task.id)} href='#'>
+              <i className="fa fa-times" aria-hidden="true"></i>
             </a>
           </span>
         </div>
