@@ -1,1 +1,1 @@
-# Simple to-do list using ReactJS, Bootstrap v4 default theme, and Font Awesome icons
+# A simple to-do list app, using ReactJS, Bootstrap v4 default theme, and Font Awesome icons
