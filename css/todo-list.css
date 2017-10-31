@@ -3,22 +3,7 @@
   color: #868e96;
 }
 
-@media screen and (min-width: 481px) {
-  .container {
-    margin-top: 48px;
-    margin-bottom: 48px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .container {
-    margin-top: 5px;
-    padding: 0;
-  }
-}
-
-.darkGreenButton {
-  background-color: #218838;
-  border-color: #1e7e34;
-  /* color: hsl(0, 0%, 0%); */
+.completedTaskCompleteButton {
+  background-color: #c1e5ca;
+  border-color: #ced4da; 
 }
