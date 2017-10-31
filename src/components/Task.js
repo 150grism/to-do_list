@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 
 class Task extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {completed: false};
-  }
-
   completeTaskToggle(taskId) {
-    // this.props.onComplete(taskId)
-    this.setState({completed: !this.state.completed});
     this.props.onCompleteToggle(taskId);
   }
 
@@ -21,9 +14,9 @@ class Task extends Component {
   }
   
   render() { 
-    let val = this.state.completed ? (this.props.task.text ? this.props.task.text : 'new task') : this.props.task.text;
+    let val = this.props.task.status === 'completed' ? (this.props.task.text ? this.props.task.text : 'new task') : this.props.task.text;
     return (
-      <li className={"Task list-group-item" + (this.state.completed ? ' list-group-item-success' : '')}>
+      <li className={"Task list-group-item" + (this.props.task.status === 'completed' ? ' list-group-item-success' : '')}>
         <div className="input-group">
           <input 
             type="text" 
@@ -31,7 +24,7 @@ class Task extends Component {
             value={val}
             placeholder="new task"
             onChange={this.editTask.bind(this, this.props.task.id)}
-            disabled={this.state.completed}
+            disabled={this.props.task.status === 'completed' ? true : false}
           />
           <span className="input-group-btn">
             <button type="button" 
