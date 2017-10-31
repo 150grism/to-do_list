@@ -39,8 +39,6 @@ class List extends Component {
         text: newList[taskIndex].text,
         status: newList[taskIndex].status === 'active' ? 'completed' : 'active'
     };
-    console.log(newList);
-    console.log(this.state.list);
     this.setState({list: newList});
   }
 
@@ -52,8 +50,6 @@ class List extends Component {
         text: newText,
         status: newList[taskIndex].status
     };
-    // console.log(newList);
-    // console.log(this.state.list);
     this.setState({list: newList});
   }
 
@@ -71,7 +67,6 @@ class List extends Component {
   render() {
     let tasks;
     tasks = this.state.list.map(task => {
-      console.log(tasksFilter);
       if (task.status === tasksFilter || tasksFilter === 'All') {
         return (
           <Task 
@@ -86,10 +81,10 @@ class List extends Component {
     })
     
     return (
-      <div className="container">
+      <div className="container p-0 my-sm-4">
         <div className="row justify-content-center">
           <div className="List col-12 col-md-9 col-lg-7 col-xl-6">
-            <h4 className="text-center">Todo list</h4>
+            <h4 className="text-center my-2">Todo list</h4>
             <div className="btn-group d-flex btn-group-lg" role="group" aria-label="Basic example">
               <button type="button" 
                 className={"btn btn-info w-100" + (tasksFilter === 'All' ? ' active' : '')} 
