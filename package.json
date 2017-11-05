@@ -2,7 +2,7 @@
   "name": "todo-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://150grism.github.io/todo-list",
+  "homepage": "http://150grism.github.io/to-do_list",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",

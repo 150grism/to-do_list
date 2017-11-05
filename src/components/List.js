@@ -84,7 +84,7 @@ class List extends Component {
       <div className="container p-0 my-sm-4">
         <div className="row justify-content-center">
           <div className="List col-12 col-md-9 col-lg-7 col-xl-6">
-            <h4 className="text-center my-2">Todo list</h4>
+            <h4 className="text-center my-2">To-do list</h4>
             <div className="btn-group d-flex btn-group-lg" role="group" aria-label="Basic example">
               <button type="button" 
                 className={"btn btn-info w-100" + (tasksFilter === 'All' ? ' active' : '')} 
